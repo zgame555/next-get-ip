@@ -6,8 +6,8 @@ import styles from "@/styles/Home.module.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ ip }: any) {
-  console.log('ip=====>');
-  
+  console.log("ip=====>", ip);
+
   return (
     <>
       <Head>
