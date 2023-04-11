@@ -8,14 +8,19 @@ export default function Home({ ip }: any) {
 
   return (
     <div>
-    <h1>ip address: {ip}</h1>
-    <Link href="/about">
-      <a>About</a>
-    </Link>
-  </div>
+      <h1>ip address: {ip}</h1>
+      <Link href="/about">
+        <a>About</a>
+      </Link>
+    </div>
   );
 }
 
 Home.getInitialProps = async ({ req }: any) => {
-  return { ip: req.headers["x-real-ip"] || req.connection.remoteAddress };
+  return {
+    ip:
+      req.headers["x-forwarded-for"] ||
+      req.headers["x-real-ip"] ||
+      req.connection.remoteAddress,
+  };
 };
