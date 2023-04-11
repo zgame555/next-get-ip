@@ -9,9 +9,7 @@ export default function Home({ ip }: any) {
   return (
     <div>
       <h1>ip address: {ip}</h1>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
+      <a>About</a>
     </div>
   );
 }
