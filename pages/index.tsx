@@ -14,11 +14,6 @@ export default function Home({ ip }: any) {
   );
 }
 
-Home.getInitialProps = async ({ req }: any) => {
-  return {
-    ip:
-      req.headers["x-forwarded-for"] ||
-      req.headers["x-real-ip"] ||
-      req.connection.remoteAddress,
-  };
-};
+Home.getInitialProps = async ({ req }: any) => ({
+  ip: req.headers["x-forwarded-for"] || req.connection.remoteAddress,
+});
